@@ -21,8 +21,6 @@ public class target : MonoBehaviour {
         {
             hitcounter++;
             StartCoroutine(playSound());
-            
-             
         }
     }
 

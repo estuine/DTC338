@@ -6,8 +6,10 @@ public class shootBall : MonoBehaviour
 
     public GameObject projectile;
     public float speed = 20;
+    public float damage;
     private GameObject clone;
     // Update is called once per frame
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
