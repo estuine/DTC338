@@ -7,6 +7,13 @@ public class hp : MonoBehaviour {
     public float health = 6;
     public Material hitColor;
     public float lagTime;
+    public AudioClip explode;
+
+
+    void Start()
+    {
+        
+    }
 
     private void OnCollisionEnter(Collision col)
     {
@@ -18,11 +25,15 @@ public class hp : MonoBehaviour {
 
             if (health <= 0)
             {
+                var exploder = new GameObject();
+                exploder.GetComponent<Transform>().position = transform.position;
+                exploder.AddComponent<AudioSource>();
+                exploder.GetComponent<AudioSource>().clip = explode;
+                exploder.GetComponent<AudioSource>().Play();
                 Destroy(this.gameObject);
             }
         }
     }
-
     private IEnumerator hitMarker()
     {
         Material oldMat=GetComponent<Renderer>().material;
